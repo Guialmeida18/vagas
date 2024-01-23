@@ -3,6 +3,7 @@ include __DIR__ . '/vendor/autoload.php';
 define('TITLE', 'Cadastar vaga');
 
 use \App\Entity\Vaga;
+use \App\Session\Login;
 $obVaga = new Vaga;
 if (isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])) {
 

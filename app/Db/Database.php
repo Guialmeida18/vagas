@@ -7,14 +7,14 @@ use \PDOException;
 
 class Database
 {
-    const Host = 'mysql';
-    const Name = 'central_vagas';
-    const User = 'root';
-    const Pass = '1234';
+    const Host = 'mysql'; //Nome do host do banco de dados (neste caso, 'mysql').
+    const Name = 'central_vagas'; //Nome do banco de dados (neste caso, 'central_vagas').
+    const User = 'root'; //Nome de usuário para acessar o banco de dados (neste caso, 'root').
+    const Pass = '1234'; //Senha para acessar o banco de dados (neste caso, '1234')
 
-    private $table;
+    private $table; //Nome da tabela a ser manipulada no banco de dados.
 
-    private $connection;
+    private $connection; //Objeto PDO que representa a conexão com o banco de dados.
 
     public function __construct($table = null)
     {
@@ -22,6 +22,7 @@ class Database
         $this->setconnect();
     }
 
+    //O método setconnect() é responsável por estabelecer a conexão com o banco de dados. Ele utiliza a classe PDO para isso, passando os detalhes de conexão (host, nome do banco de dados, usuário e senha) como argumentos.
     private function setconnect()
     {
         try {
@@ -32,7 +33,7 @@ class Database
         }
     }
 
-    //metodo utilizado parta execultar querys dentro do banco
+    //metodo utilizado parta execultar querys dentro do banco, O método execute() é responsável por executar uma consulta no banco de dados. Ele aceita duas variáveis: $query, que é a consulta SQL a ser executada, e $params, que é um array de parâmetros a serem vinculados à consulta.
     public function execute($query, $params = [])
     {
         try {
